@@ -8,12 +8,12 @@ int main()
 	// declare return value for system call
 	int ret = 0;
 	// declare buffer to hold result of system call
-	char * buffer;
+	char * buff;
 	// set the length of the buffer
-	int n = 9000;
+	int n = 5000;
 
 	// allocate memory for buffer to hold result
-	if( ( buffer = (char *) malloc(n*sizeof(char)+1) ) == NULL ) 
+	if( ( buff = (char *) malloc(n*sizeof(char)+1) ) == NULL ) 
 		perror( "Error allocating buffer\n" );
 
 	// print the size of the buffer
@@ -21,12 +21,12 @@ int main()
 
 	// perform system call, storing return value in ret
 	// result of system call will be stored in buffer
-	ret = syscall(__NR_my_syscall, 0, n, buffer);
+	ret = syscall(__NR_my_syscall, 0, n, buff);
 
 	// print the results of the system call - contents of buffer
 	// printf("buffer = %s\n", buffer);
 	printf("  PID TTY          TIME CMD\n");
-	printf("%s", buffer);
+	printf("%s", buff);
 
 	// print the return value from system call
 	// this should have the number of bytes not copied to userspace
