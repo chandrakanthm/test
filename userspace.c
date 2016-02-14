@@ -1,3 +1,4 @@
+
 #include <linux/unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +21,7 @@ int main()
 	ret = syscall(__NR_my_syscall, 0, n, buff);
 
 	// print the results of the system call - contents of buffer
-	printf("PID TTY TIME CMD\n");
+	printf("  PID TTY          TIME CMD\n");
 	printf("%s", buff);
 
 	// de-allocate the memory allocated for the buffer
